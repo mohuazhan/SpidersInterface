@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        //获取url上的参数
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  decodeURI(r[2]); return null;
+        }
+        var user_id = getQueryString("uid");
+        document.write("<script src='http://127.0.0.1:20201/douyin-pc/uid-get-aweme.php?uid="+user_id+"'><\/script>");
+    </script>
+</head>
+<body>
+    <script type="text/javascript">
+        var url =  'google-chrome --headless --disable-gpu --dump-dom --no-sandbox ' +
+           '"https://www.iesdouyin.com/web/api/v2/aweme/post/?' +
+           'user_id='+uid()+
+           '&sec_uid=' +
+           '&count=21' +
+           '&max_cursor=0' +
+           '&aid=1128' +
+           '&_signature='+sign(uid()) +
+           '&dytk='+dytk()+'"';
+        document.write(url);
+    </script>
+</body>
+</html>

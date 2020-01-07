@@ -1,0 +1,12 @@
+# nginx:
+/var/log/nginx/access.log
+/var/log/nginx/error.log
+
+# supervisor:
+/tmp/supervisord.log
+
+# api server:
+/tmp/tornado_api_8000.log
+/tmp/tornado_api_8001.log
+/tmp/tornado_api_8002.log
+/tmp/tornado_api_8003.log

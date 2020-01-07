@@ -1,0 +1,65 @@
+info:
+  version: 1.0.0
+  contact:
+    email: 919656720@qq.com
+  description: 此文档提供 API 请求方式相关描述，从这里可以获取到各类爬虫接口
+  title: 爬虫 API 文档
+paths:
+  /douyin/uid/awemelist:
+    post:
+      responses:
+        '200':
+          description: OK
+        '206':
+          description: Partial Content
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '405':
+          description: Method Not Allowed
+        '500':
+          description: Internal Server Error
+      tags:
+        - DouYinPC-AwemeList
+      summary: 获取抖音用户视频列表
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Uid'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Uid'
+        required: true
+        description: 需要发起请求的数据结构
+components:
+  schemas:
+    Uid:
+      xml:
+        name: Uid
+      required:
+        - uid
+      type: object
+      properties:
+        method:
+          type: string
+          example: "PC"
+        uid:
+          type: string
+          example: "74008053060"
+        token:
+          type: string
+          example: "a0203d249443d395bedf51c6c8213651"
+          format: md5(method + uid + 'boookekj')
+tags:
+  - externalDocs:
+      url: iesdouyin.com
+      description: 源网站域名
+    name: DouYinPC-AwemeList
+    description: 抖音PC版web的各用户视频列表的采集
+servers:
+  - url: 'http://192.168.0.89:8088/v1/spider'
+openapi: 3.0.1

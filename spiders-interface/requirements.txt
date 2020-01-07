@@ -1,0 +1,6 @@
+tornado
+requests
+supervisor
+lxml
+pymongo
+fontTools
